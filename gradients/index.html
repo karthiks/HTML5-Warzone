@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <script src="script.js"></script>
+    <title>Demo HTML5</title>
+</head>
+<body style="background-color: black">
+    <section id="mycanvasarea">
+         <canvas id="mycanvas" width="500" height="300" style="border:1px solid #000000; background-color: white"></canvas>          
+    </section>
+</body>
+<script type="text/javascript">
+    function drawCanvas() {
+        var ele = document.getElementById("mycanvas");
+        var canvas = ele.getContext('2d');
+        var stroke = canvas.strokeRect(0,0,500,300); //Canvas
+
+        //createLinearGradient(x0, y0, x1, y1) paints along a line from (x0, y0) to (x1, y1)
+        var gradient = canvas.createLinearGradient(0, 0, 500, 300);
+
+        //Gradient is a smooth transition between two or more colors
+        gradient.addColorStop(0.25, 'Red');
+        gradient.addColorStop(0.5, 'Blue');
+        gradient.addColorStop(0.75, 'Yellow');
+        gradient.addColorStop(1, 'Green');
+        canvas.fillStyle = gradient;
+
+        canvas.fillRect(0,0, 50,500); //LHS Vertical line
+        canvas.fillRect(450, 0, 500, 300); //RHS Vertical Line
+        canvas.fillRect(100, 100, 300, 100); //Middle Rectangle
+        canvas.fillRect(0, 0, 500, 50); //Top Horizontal Line
+        canvas.fillRect(0, 250, 500, 300); //Bottom Horizontal Line
+    }
+
+    window.onload = drawCanvas;
+</script>  
+</html>
