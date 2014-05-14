@@ -4,7 +4,7 @@ HTML5-Warzone
 Getting dirty with HTML5 and its allies ;-/
 
 ## Demo
-You can see demo of my works here.
+You can see demo of this project [here](http://karthiks.github.io/HTML5-Warzone/).
 
 ## Contributors
 + [Karthik Sirasanagandla](https://github.com/karthiks)
