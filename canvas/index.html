@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <script src="script.js"></script>
+    <title>Demo HTML5</title>
+</head>
+<body style="background-color: green">
+    <section id="mycanvasarea">
+         <canvas id="mycanvas" width="500" height="300" style="border:1px solid #000000; background-color: white"></canvas>          
+    </section>
+</body>
+<script type="text/javascript">
+    function drawCanvas() {
+        var ele = document.getElementById("mycanvas");
+        var canvas = ele.getContext('2d');
+
+        //Note: Color and Styling has to be applied before the canvas is drawn
+        canvas.fillStyle = "Blue";
+        canvas.strokeStyle = "Red";
+
+
+        //Rectangle can be created with strokerect or fillrect
+        //canvas.strokerect(loc-x,loc-y,height,width);
+        var stroke = canvas.strokeRect(200,100,120,120);
+        var fill = canvas.fillRect(190,90,100,100);
+        var clear = canvas.clearRect(210,110,50,60);
+    }
+
+    window.onload = drawCanvas;
+</script>  
+</html>
