@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Demo HTML5 - Dedicated Web Workers</title>
+    </head>
+    <body>
+        <p>Computing prime numbers... <output id="output" style="font-size: x-large"> Nothing </output>  is found. </p>
+        <button id="startStopToggle"> Start </button>
+    </body>
+</html>
+
+<script type="text/javascript">
+(function() {
+    // Attaching click event to our Start-Stop toggle button
+    getStartStopToggleButton().onclick = startStopPrimeNumberComputation;
+
+    var worker = null;
+    var runningState = false;
+
+    function startStopPrimeNumberComputation() {
+        var START = "Start", STOP = "Stop";
+
+        runningState = !runningState;
+        worker.postMessage(runningState); //Kick-starting a worker thread
+        getStartStopToggleButton().innerHTML = runningState ? STOP : START;
+    }
+
+    function initiate() {
+        if (isWorkerSupported()) {
+            alert("Oh sorry, web workers are not supported by this browser (version) of yours! Try new FF, Chrome or Safari.");
+            return;
+        }
+
+        var output = document.getElementById("output");
+        
+        worker = new Worker("primeNumberComputeWorker.js");
+        worker.onmessage = function (event) {
+            output.textContent = event.data;
+        };
+    }
+    addEventListener("load", initiate);
+
+    // ##### Utility Functions ######
+    
+    function isWorkerSupported() {
+        return typeof(Worker) == 'undefined';
+    }
+
+    function getStartStopToggleButton() {
+        return document.getElementById("startStopToggle");
+    }
+
+ })()   
+</script>
