@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+
+<head><title>HTML5 Demo - Form Elements</title></head>
+
+<body>
+<hgroup>
+  <p>HTML5 Form Elements Demo</p>
+</hgroup>
+
+  <form id="myform">
+    <label for="date-input"> Choose date: </label>
+    <input type="date" id="date-input"/>
+    <hr>
+    <label for="datetime-input"> Choose date-time: </label>
+    <input type="datetime" id="datetime-input"/>
+    <small>This tag is now not supported in HTML5</small>
+    <hr>
+    <label for="month-input"> Choose month: </label>
+    <input type="month" id="month-input"/>
+    <small>This tag is now not supported in HTML5</small>
+    <hr>
+    <label for="week-input"> Choose week: </label>
+    <input type="week" id="week-input"/>
+    <small>This tag is now not supported in HTML5</small>
+    <hr>
+    <label for="time-input"> Choose time: </label>
+    <input type="time" id="time-input"/>
+    <hr>
+    <label for="range-input"> Choose range: </label>
+    <input type="range" min="0" max="25" id="range-input"/>
+    <br/>
+    <style>
+      .range-css::after { content: attr(max); }
+      .range-css::before { content: attr(min); }
+      .range-css { width: 250px; color: #0000FF;
+        font-family: sans-serif; font-size: smaller; }
+    </style>
+    <label for="range-input"> Choose range: </label>
+    <input type="range" min="0" max="25" id="range-input" class="range-css"/>
+    <hr>
+    <label for="search-input"> Search: </label>
+    <input type="search" placeholder="searchTag1 searchTag2" id="search-input"/>
+    <hr>
+    <label for="telephone-input"> Telephone: </label>
+    <input type="tel" placeholder="+91" id="telephone-input"/>
+    <hr>
+    <label for="email-input"> E-mail: </label>
+    <input type="email" id="email-input" placeholder="email1@karthik.com [, email2@karthik.in]" required multiple style="width:350px" />
+    <input type="submit" value="Submit Form"/>
+    <hr>
+    <label for="color-input"> Pick you color: </label>
+    <input type="color" id="color-input"/>
+    <hr>
+    <b style="font-size: large">Note the attributes for the Data-List declaration and its usage purpose/context</b> <br/>
+    <label for="myDataList"> Data List: </label>
+    <input type="text" list="myDataList" placeholder="Mr. "/>
+    <datalist id="myDataList">
+      <option label="Mr." value="Mr."></option>
+      <option label="Mrs." value="Mrs."></option>
+      <option label="Ms." value="Ms."></option>
+    </datalist>
+    <hr>
+    <label for="progress-data"> Progress Bar: </label>
+    <progress value="5" max="100" id="progress-data"></progress>
+    <hr>
+    <label for="meter-data"> Meter: </label>
+    <meter id="meter-data"
+              min="5"
+              max="100"
+              low="25"
+              optimum="50"
+              high="75"
+    value="20"></meter>
+    <meter min="5"
+              max="100"
+              low="25"
+              optimum="50"
+              high="75"
+    value="50"></meter>
+    <meter min="5"
+              max="100"
+              low="25"
+              optimum="50"
+              high="75"
+    value="90"></meter>
+    <hr>
+  </form>
+
+  <label for="outsideFormSemantically"> This field is outside above form tags  technically but still part of it and gets submitted along with the form as part of it when the form is submitted. Thanks HTML5! </label><br/>
+  <input type="text" id="outsideFormSemantically" form="myform"/>
+</body>
+</html>
